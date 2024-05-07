@@ -31,6 +31,7 @@ class MatchGame extends Component {
 
   randomNumberGenerator = () => {
     const {imagesList} = this.props
+    console.log(imagesList)
     const limit = imagesList.length
     const randomNumber = Math.ceil(Math.random() * limit)
     const randominList = randomNumber - 1 // index start from 0

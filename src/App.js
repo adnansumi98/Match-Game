@@ -248,6 +248,6 @@ const imagesList = [
   },
 ]
 
-const App = () => <MatchGame fruitList={imagesList} tabsList={tabsList} />
+const App = () => <MatchGame imagesList={imagesList} tabsList={tabsList} />
 
 export default App

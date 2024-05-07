@@ -7,6 +7,7 @@ const TabList = props => {
     <div className="tab-container">
       {tabsList.map(each => (
         <button
+          key={each.tabId}
           value={each.tabId}
           className="tab-button"
           type="button"
