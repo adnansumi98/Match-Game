@@ -1,0 +1,19 @@
+.tab-container {
+  display: flex;
+  justify-content: center;
+}
+.tab-button {
+  background-color: transparent;
+  color: #fff;
+  font-size: 14px;
+  padding: 10px;
+  border: solid 2px transparent;
+  cursor: pointer;
+  margin: 10px;
+}
+
+@media (max-width: 576px) {
+  .tab-button {
+    font-size: 14px;
+  }
+}

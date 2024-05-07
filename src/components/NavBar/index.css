@@ -1,0 +1,30 @@
+.navbar-container {
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Roboto';
+}
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10px;
+}
+.page-logo {
+  height: 40px;
+  width: 200px;
+}
+.score-and-timer-contianer {
+  display: flex;
+  flex-direction: row;
+}
+.score-and-timer-text {
+  font-size: 14px;
+  color: #ffffff;
+}
+.score-and-timer {
+  color: #fec653;
+}
+.timer-image {
+  height: 40px;
+  width: 40px;
+}

@@ -1,0 +1,19 @@
+.image-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+}
+
+.selected-image {
+  width: 60vw;
+  height: 50vh;
+}
+
+@media (max-width: 576px) {
+  .selected-image {
+    width: 60vw;
+    height: 25vh;
+  }
+}
