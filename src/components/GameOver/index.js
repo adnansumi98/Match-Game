@@ -10,7 +10,7 @@ const GameOver = props => {
         alt="trophy"
         className="scorecard-trophy"
       />
-      <p className="scorecard-text">Your Score</p>
+      <p className="scorecard-text">YOUR SCORE</p>
       <p className="scorecard-score">{score}</p>
       <div className="scorecard-button-container">
         <button

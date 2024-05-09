@@ -69,8 +69,9 @@ class MatchGame extends Component {
   }
 
   restartGame = () => {
-    this.setFruits()
+    // console.log('Restarting game') // Debug log
     this.startTimer()
+    this.setFruits()
     this.setState({
       score: 0,
       timer: 60,
@@ -82,6 +83,7 @@ class MatchGame extends Component {
 
   render() {
     const {tabsList, imagesList} = this.props
+    // const initialImage = imagesList.length > 0 ? imagesList[0].imageUrl : ''
     const {
       selectedItem,
       filteredImageList,
@@ -93,7 +95,8 @@ class MatchGame extends Component {
     const handleClickTab = event => {
       const selectedButton = event.target
 
-      const buttons = [...document.getElementsByTagName('button')]
+      const buttons = [...document.getElementsByClassName('tab-button')]
+      // console.log(buttons)
       buttons.forEach(button => {
         if (button === selectedButton) {
           button.classList.add('selected-tab')
@@ -108,12 +111,15 @@ class MatchGame extends Component {
     }
 
     const handleClickImage = async event => {
-      await this.setState(() => ({selectedId: event.target.alt}))
+      await this.setState(() => ({selectedId: event.target.value}))
 
+      // console.log(this.state)
       const {selectedId, correctId, highScore} = this.state
       if (selectedId === correctId) {
-        await this.setState(prevState => ({score: prevState.score + 10}))
+        await this.setState(prevState => ({score: prevState.score + 1}))
         this.randomNumberGenerator()
+      } else {
+        await this.setState({isGameStarted: false})
       }
 
       if (score > highScore) {
@@ -126,19 +132,28 @@ class MatchGame extends Component {
         <NavBar score={score} timer={timer} />
         {isGameStarted ? (
           <div>
+            {/* 
+            Page should initially consist of an HTML image element with alt 
+            attribute value as "match" and src as the value of the key "imageUrl" 
+            from the first object in imagesList provided test case failed            
+            {initialImage && (
+              <img src={initialImage} alt="match" className="initial-image" />
+            )} */}
             <Imagegenerator selectedItem={selectedItem} />
             <TabList tabsList={tabsList} handleClickTab={handleClickTab} />
-            <div className="imagelist-container">
+            <ul className="imagelist-container">
               {filteredImageList.map(each => (
-                <img
-                  key={each.id}
-                  src={each.thumbnailUrl}
-                  alt={each.id}
-                  onClick={handleClickImage}
-                  className="imagelist-thumbnails"
-                />
+                <li key={each.id} onClick={handleClickImage}>
+                  <button
+                    type="button"
+                    className="image-button"
+                    aria-label="Select Image"
+                    value={each.id}
+                    style={{backgroundImage: `url('${each.thumbnailUrl}')`}}
+                  />
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         ) : (
           <GameOver score={score} restartGame={this.restartGame} />

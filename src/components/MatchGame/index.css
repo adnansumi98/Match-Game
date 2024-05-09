@@ -37,3 +37,17 @@
     margin: 10px;
   }
 }
+
+ul {
+  list-style: none;
+}
+
+.image-button {
+  border: transparent 0px;
+  background-color: transparent;
+  padding: 0px;
+  width: 100px;
+  height: 100px;
+  background-size: cover;
+  margin: 10px;
+}

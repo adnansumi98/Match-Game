@@ -1,7 +1,7 @@
 import './index.css'
 
 const Imagegenerator = props => {
-  const {selectedItem} = props
+  const {selectedItem = ''} = props
   // console.log(selectedItem)
   return (
     <div className="image-container">
